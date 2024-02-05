@@ -6,17 +6,17 @@ useState;
 
 const FormularioTarea = () => {
   const [tarea, setTarea] = useState("");
-  const [tareas, setTareas] = useState ([]);
+  const [tareas, setTareas] = useState([]);
 
-  const handleSubmit = (e)=> {
-e.preventDefault();
-console.log('dentro del evento submit')
-//realizar algo similar al tareas.push()
-//se lo puede realizar con el operador spread ...
-setTareas([...tareas, tarea]);
-//limpiar el formulario
-setTarea('');
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("dentro del evento submit");
+    //realizar algo similar al tareas.push()
+    //se lo puede realizar con el operador spread ...
+    setTareas([...tareas, tarea]);
+    //limpiar el formulario
+    setTarea("");
+  };
 
   return (
     <section>
@@ -30,7 +30,7 @@ setTarea('');
             placeholder="Ejemplo: Tarea"
             minLength={3}
             maxLength={50}
-            onChange={(e)=> setTarea(e.target.value) }
+            onChange={(e) => setTarea(e.target.value)}
             value={tarea}
           />
           <Button variant="dark" className="ms-2" type="submit">
@@ -38,7 +38,7 @@ setTarea('');
           </Button>
         </Form.Group>
       </Form>
-      <ListaTareas></ListaTareas>
+      <ListaTareas tareas={tareas}></ListaTareas>
     </section>
   );
 };
